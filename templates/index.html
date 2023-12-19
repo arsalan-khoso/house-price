@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>House Price Prediction Form</title>
+  </head>
+  <body>
+    <h1>House Price Prediction</h1>
+    <form action="/predict" method="post">
+      <label for="property_type">Property Type:</label>
+      <input
+        type="text"
+        id="property_type"
+        name="property_type"
+        required
+      /><br />
+
+      <label for="baths">Number of Baths:</label>
+      <input type="number" id="baths" name="baths" required /><br />
+
+      <label for="bedrooms">Number of Bedrooms:</label>
+      <input type="number" id="bedrooms" name="bedrooms" required /><br />
+
+      <label for="Total_Area">Total Area:</label>
+      <input type="number" id="Total_Area" name="Total_Area" required /><br />
+
+      <label for="city">City:</label>
+      <select id="city" name="city" required>
+        <option value="Islamabad">Islamabad</option>
+        <option value="Lahore">Lahore</option>
+        <option value="Rawalpindi">Rawalpindi</option>
+        <option value="Karachi">Karachi</option>
+        <option value="Faisalabad">Faisalabad</option></select
+      ><br />
+
+      <button type="submit">Predict Price</button>
+    </form>
+
+    {% if prediction %}
+    <div id="result">{{ prediction }}</div>
+    {% endif %}
+  </body>
+</html>
